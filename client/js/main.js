@@ -1,4 +1,4 @@
-fetch("https://health-hub-a-hospital-managment-system.onrender.com/api/...")
+const API_BASE = "http://localhost:3000/api";
 
 // Helper function to POST form data to backend
 async function postData(url, data) {

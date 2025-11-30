@@ -130,3 +130,11 @@ tbody td {
 tbody tr:hover {
     background: #f3e8ff;
 }
+
+    /* Footer */
+    footer {
+      margin-top: 80px;
+      text-align: center;
+      color: #555;
+      font-size: 14px;
+    }

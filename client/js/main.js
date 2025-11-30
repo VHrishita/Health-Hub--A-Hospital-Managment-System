@@ -196,4 +196,44 @@ if(userForm) {
     }
     loadUsers();
 }
+// CSV Export
+document.getElementById("exportCSV").addEventListener("click", function() {
+    const table = document.getElementById("doctorsTable"); // change ID here
+    exportTableToCSV(table, "doctors.csv");
+});
+
+// PDF Export
+document.getElementById("exportPDF").addEventListener("click", function() {
+    const table = document.getElementById("doctorsTable"); // change ID here
+    exportTableToPDF(table, "doctors.pdf");
+});
+
+// Reusable functions
+function exportTableToCSV(table, filename){
+    let csv = [];
+    table.querySelectorAll("tr").forEach(row => {
+        let rowData = [];
+        row.querySelectorAll("th, td").forEach(cell => rowData.push('"' + cell.innerText + '"'));
+        csv.push(rowData.join(","));
+    });
+    const csvFile = new Blob([csv.join("\n")], { type: "text/csv" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(csvFile);
+    link.download = filename;
+    link.click();
+}
+
+function exportTableToPDF(table, filename){
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    let head = [], body = [];
+    table.querySelectorAll("thead tr th").forEach(th => head.push(th.innerText));
+    table.querySelectorAll("tbody tr").forEach(tr => {
+        let row = [];
+        tr.querySelectorAll("td").forEach(td => row.push(td.innerText));
+        body.push(row);
+    });
+    doc.autoTable({ head: [head], body: body, startY: 20 });
+    doc.save(filename);
+}
 

@@ -24,6 +24,9 @@ app.use('/api/prescriptions', prescriptionRoutes);
 app.use('/api/rooms', roomRoutes);
 app.use('/api/suppliers', supplierRoutes);
 app.use('/api/users', userRoutes);
+app.get("/", (req, res) => {
+  res.send("Backend is running!");
+});
 
 
 

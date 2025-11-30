@@ -1,6 +1,7 @@
 import express from 'express';
 import db from '../db.js';
 const router = express.Router();
+const patients = await fetch("https://health-hub-a-hospital-managment-system.onrender.com/api/patients/all");
 
 // Add patient
 router.post('/add', async (req, res) => {

@@ -196,6 +196,43 @@ if(userForm) {
     }
     loadUsers();
 }
+
+// ================= APPOINTMENTS =================
+const appointmentForm = document.querySelector("#appointmentForm");
+const appointmentsTable = document.querySelector("#appointmentsTable tbody");
+
+if(appointmentForm) {
+    appointmentForm.addEventListener("submit", async e => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(appointmentForm));
+        const res = await postData("/appointments/add", data);
+        if(res && res.success) {
+            alert("Appointment added!");
+            appointmentForm.reset();
+            loadAppointments();
+        }
+    });
+
+    async function loadAppointments() {
+        const appointments = await fetchData("/appointments/all");
+        appointmentsTable.innerHTML = "";
+        appointments.forEach(a => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${a.appointment_id}</td>
+                <td>${a.patient_name}</td>
+                <td>${a.doctor_name}</td>
+                <td>${a.date}</td>
+                <td>${a.time}</td>
+                <td>${a.status}</td>
+            `;
+            appointmentsTable.appendChild(tr);
+        });
+    }
+    loadAppointments();
+}
+
+
 // CSV Export
 document.getElementById("exportCSV").addEventListener("click", function() {
     const table = document.getElementById("doctorsTable"); // change ID here

@@ -1,6 +1,5 @@
 const API_BASE = "http://localhost:3000/api";
 
-// Helper function to POST form data to backend
 async function postData(url, data) {
     try {
         const response = await fetch(`${API_BASE}${url}`, {
@@ -15,7 +14,6 @@ async function postData(url, data) {
     }
 }
 
-// Helper function to GET data from backend
 async function fetchData(url) {
     try {
         const res = await fetch(`${API_BASE}${url}`);
@@ -26,7 +24,6 @@ async function fetchData(url) {
     }
 }
 
-// ================= PATIENTS =================
 const patientForm = document.querySelector("#patientForm");
 const patientsTable = document.querySelector("#patientsTable tbody");
 
@@ -55,7 +52,6 @@ if(patientForm) {
     loadPatients();
 }
 
-// ================= DOCTORS =================
 const doctorForm = document.querySelector("#doctorForm");
 const doctorsTable = document.querySelector("#doctorsTable tbody");
 
@@ -84,7 +80,6 @@ if(doctorForm) {
     loadDoctors();
 }
 
-// ================= PRESCRIPTIONS =================
 const prescriptionForm = document.querySelector("#prescriptionForm");
 const prescriptionsTable = document.querySelector("#prescriptionsTable tbody");
 
@@ -112,7 +107,6 @@ if(prescriptionForm) {
     loadPrescriptions();
 }
 
-// ================= ROOMS =================
 const roomForm = document.querySelector("#roomForm");
 const roomsTable = document.querySelector("#roomsTable tbody");
 
@@ -140,7 +134,6 @@ if(roomForm) {
     loadRooms();
 }
 
-// ================= SUPPLIERS =================
 const supplierForm = document.querySelector("#supplierForm");
 const suppliersTable = document.querySelector("#suppliersTable tbody");
 
@@ -168,7 +161,6 @@ if(supplierForm) {
     loadSuppliers();
 }
 
-// ================= USERS =================
 const userForm = document.querySelector("#userForm");
 const usersTable = document.querySelector("#usersTable tbody");
 
@@ -196,7 +188,6 @@ if(userForm) {
     loadUsers();
 }
 
-// ================= APPOINTMENTS =================
 const appointmentForm = document.querySelector("#appointmentForm");
 const appointmentsTable = document.querySelector("#appointmentsTable tbody");
 
@@ -232,19 +223,16 @@ if(appointmentForm) {
 }
 
 
-// CSV Export
 document.getElementById("exportCSV").addEventListener("click", function() {
     const table = document.getElementById("doctorsTable"); // change ID here
     exportTableToCSV(table, "doctors.csv");
 });
 
-// PDF Export
 document.getElementById("exportPDF").addEventListener("click", function() {
     const table = document.getElementById("doctorsTable"); // change ID here
     exportTableToPDF(table, "doctors.pdf");
 });
 
-// Reusable functions
 function exportTableToCSV(table, filename){
     let csv = [];
     table.querySelectorAll("tr").forEach(row => {
@@ -514,4 +502,3 @@ document.getElementById("exportCSV").addEventListener("click", function() {
     document.body.appendChild(downloadLink);
     downloadLink.click();
 });
-

@@ -273,4 +273,246 @@ function exportTableToPDF(table, filename){
     doc.autoTable({ head: [head], body: body, startY: 20 });
     doc.save(filename);
 }
+document.getElementById("exportPDF").addEventListener("click", function() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    const table = document.getElementById("patientsTable");
+    let rows = [];
+    table.querySelectorAll("tr").forEach(tr => {
+        let row = [];
+        tr.querySelectorAll("th, td").forEach(td => row.push(td.innerText));
+        rows.push(row);
+    });
+
+    doc.autoTable({
+        head: [rows[0]],
+        body: rows.slice(1)
+    });
+
+    doc.save("patients.pdf");
+});
+document.getElementById("exportCSV").addEventListener("click", function() {
+    const table = document.getElementById("patientsTable");
+    let csv = [];
+    const rows = table.querySelectorAll("tr");
+    
+    rows.forEach(row => {
+        const cols = row.querySelectorAll("th, td");
+        const rowData = [];
+        cols.forEach(col => rowData.push('"' + col.innerText + '"'));
+        csv.push(rowData.join(","));
+    });
+
+    const csvFile = new Blob([csv.join("\n")], {type: "text/csv"});
+    const downloadLink = document.createElement("a");
+    downloadLink.download = "patients.csv";
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+});
+
+
+document.getElementById("exportPDF").addEventListener("click", function() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    const table = document.getElementById("appointmentsTable");
+    let rows = [];
+    table.querySelectorAll("tr").forEach(tr => {
+        let row = [];
+        tr.querySelectorAll("th, td").forEach(td => row.push(td.innerText));
+        rows.push(row);
+    });
+
+    doc.autoTable({
+        head: [rows[0]],
+        body: rows.slice(1)
+    });
+
+    doc.save("appointments.pdf");
+});
+
+document.getElementById("exportPDF").addEventListener("click", function() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    const table = document.getElementById("prescriptionsTable");
+    let rows = [];
+    table.querySelectorAll("tr").forEach(tr => {
+        let row = [];
+        tr.querySelectorAll("th, td").forEach(td => row.push(td.innerText));
+        rows.push(row);
+    });
+
+    doc.autoTable({
+        head: [rows[0]],
+        body: rows.slice(1)
+    });
+
+    doc.save("prescriptions.pdf");
+});
+
+
+document.getElementById("exportPDF").addEventListener("click", function() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    const table = document.getElementById("suppliersTable");
+    let rows = [];
+    table.querySelectorAll("tr").forEach(tr => {
+        let row = [];
+        tr.querySelectorAll("th, td").forEach(td => row.push(td.innerText));
+        rows.push(row);
+    });
+
+    doc.autoTable({
+        head: [rows[0]],
+        body: rows.slice(1)
+    });
+
+    doc.save("suppliers.pdf");
+});
+
+document.getElementById("exportPDF").addEventListener("click", function() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    const table = document.getElementById("roomsTable");
+    let rows = [];
+    table.querySelectorAll("tr").forEach(tr => {
+        let row = [];
+        tr.querySelectorAll("th, td").forEach(td => row.push(td.innerText));
+        rows.push(row);
+    });
+
+    doc.autoTable({
+        head: [rows[0]],
+        body: rows.slice(1)
+    });
+
+    doc.save("rooms.pdf");
+});
+
+document.getElementById("exportPDF").addEventListener("click", function() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    const table = document.getElementById("usersTable");
+    let rows = [];
+    table.querySelectorAll("tr").forEach(tr => {
+        let row = [];
+        tr.querySelectorAll("th, td").forEach(td => row.push(td.innerText));
+        rows.push(row);
+    });atients
+
+    doc.autoTable({
+        head: [rows[0]],
+        body: rows.slice(1)
+    });
+
+    doc.save("users.pdf");
+});
+
+document.getElementById("exportCSV").addEventListener("click", function() {
+    const table = document.getElementById("appointmentsTable");
+    let csv = [];
+    const rows = table.querySelectorAll("tr");
+    
+    rows.forEach(row => {
+        const cols = row.querySelectorAll("th, td");
+        const rowData = [];
+        cols.forEach(col => rowData.push('"' + col.innerText + '"'));
+        csv.push(rowData.join(","));
+    });
+
+    const csvFile = new Blob([csv.join("\n")], {type: "text/csv"});
+    const downloadLink = document.createElement("a");
+    downloadLink.download = "appointments.csv";
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+});
+document.getElementById("exportCSV").addEventListener("click", function() {
+    const table = document.getElementById("prescriptionsTable");
+    let csv = [];
+    const rows = table.querySelectorAll("tr");
+    
+    rows.forEach(row => {
+        const cols = row.querySelectorAll("th, td");
+        const rowData = [];
+        cols.forEach(col => rowData.push('"' + col.innerText + '"'));
+        csv.push(rowData.join(","));
+    });
+
+    const csvFile = new Blob([csv.join("\n")], {type: "text/csv"});
+    const downloadLink = document.createElement("a");
+    downloadLink.download = "prescriptions.csv";
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+});
+document.getElementById("exportCSV").addEventListener("click", function() {
+    const table = document.getElementById("suppliersTable");
+    let csv = [];
+    const rows = table.querySelectorAll("tr");
+    
+    rows.forEach(row => {
+        const cols = row.querySelectorAll("th, td");
+        const rowData = [];
+        cols.forEach(col => rowData.push('"' + col.innerText + '"'));
+        csv.push(rowData.join(","));
+    });
+
+    const csvFile = new Blob([csv.join("\n")], {type: "text/csv"});
+    const downloadLink = document.createElement("a");
+    downloadLink.download = "suppliers.csv";
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+});
+document.getElementById("exportCSV").addEventListener("click", function() {
+    const table = document.getElementById("roomsTable");
+    let csv = [];
+    const rows = table.querySelectorAll("tr");
+    
+    rows.forEach(row => {
+        const cols = row.querySelectorAll("th, td");
+        const rowData = [];
+        cols.forEach(col => rowData.push('"' + col.innerText + '"'));
+        csv.push(rowData.join(","));
+    });
+
+    const csvFile = new Blob([csv.join("\n")], {type: "text/csv"});
+    const downloadLink = document.createElement("a");
+    downloadLink.download = "rooms.csv";
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+});
+document.getElementById("exportCSV").addEventListener("click", function() {
+    const table = document.getElementById("usersTable");
+    let csv = [];
+    const rows = table.querySelectorAll("tr");
+    
+    rows.forEach(row => {
+        const cols = row.querySelectorAll("th, td");
+        const rowData = [];
+        cols.forEach(col => rowData.push('"' + col.innerText + '"'));
+        csv.push(rowData.join(","));
+    });
+
+    const csvFile = new Blob([csv.join("\n")], {type: "text/csv"});
+    const downloadLink = document.createElement("a");
+    downloadLink.download = "users.csv";
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+});
 

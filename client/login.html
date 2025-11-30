@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - HMS</title>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Background gradient like Home Page */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, hsl(160 55% 85%), hsl(280 50% 88%), hsl(25 80% 88%));
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Glass card */
+        .login-card {
+            width: 380px;
+            background: rgba(255, 255, 255, 0.65);
+            padding: 40px 35px;
+            border-radius: 22px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+            text-align: center;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #c76eb1;
+        }
+
+        .subtitle {
+            margin-top: 10px;
+            font-size: 15px;
+            color: #7a0c43;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-top: 25px;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+        }
+
+        .forgot {
+            display: block;
+            margin-top: 8px;
+            text-align: right;
+            font-size: 13px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 14px;
+            background: hsl(160, 26%, 66%);
+            color: white;
+            margin-top: 25px;
+            border: none;
+            border-radius: 16px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-login:hover {
+            background: #3d7a59;
+        }
+
+        .signup {
+            margin-top: 18px;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .signup a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        #loginMessage {
+            margin-top: 10px;
+            font-size: 14px;
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="login-card">
+
+        <div class="title">Welcome Back</div>
+        <p class="subtitle">Enter your credentials to access your dashboard</p>
+
+        <form id="loginForm">
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="text" name="username" placeholder="example@gmail.com" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="" required>
+            </div>
+
+            <button type="submit" class="btn-login">Sign In</button>
+
+        </form>
+
+        <p id="loginMessage"></p>
+    </div>
+
+<script>
+    const loginForm = document.querySelector("#loginForm");
+    const loginMessage = document.querySelector("#loginMessage");
+
+    loginForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const username = loginForm.username.value;
+        const password = loginForm.password.value;
+
+        try {
+            const res = await fetch("http://localhost:3000/api/users/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                window.location.href = "dashboard.html"; 
+            } else {
+                loginMessage.textContent = "Invalid username or password!";
+            }
+        } catch (err) {
+            loginMessage.textContent = "Error connecting to server";
+        }
+    });
+</script>
+
+</body>
+</html>

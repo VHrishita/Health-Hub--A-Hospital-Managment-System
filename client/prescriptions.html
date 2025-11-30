@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Prescriptions - HMS</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><h1>Prescription Management</h1></header>
+<nav><a href="dashboard.html">Dashboard</a></nav>
+<main>
+<h2>Add Prescription</h2>
+<form id="prescriptionForm">
+<input type="text" name="patient_id" placeholder="Patient ID" required>
+<input type="text" name="doctor_id" placeholder="Doctor ID" required>
+<textarea name="medicine" placeholder="Medicine Details" required></textarea>
+<input type="text" name="dosage" placeholder="Dosage">
+<input type="text" name="frequency" placeholder="Frequency">
+<input type="text" name="duration" placeholder="Duration">
+<textarea name="instructions" placeholder="Instructions"></textarea>
+<button type="submit">Add Prescription</button>
+</form>
+
+<h2>Existing Prescriptions</h2>
+<table id="prescriptionsTable">
+<thead><tr>
+<th>ID</th><th>Patient ID</th><th>Doctor ID</th><th>Medicine</th><th>Dosage</th><th>Frequency</th><th>Duration</th><th>Instructions</th><th>Created At</th>
+</tr></thead>
+<tbody></tbody>
+</table>
+<script src="js/main.js"></script>
+</main>
+</body>
+</html>

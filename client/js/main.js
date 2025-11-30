@@ -1,0 +1,199 @@
+// Base URL for API
+const API_BASE = "http://localhost:3000/api";
+
+// Helper function to POST form data to backend
+async function postData(url, data) {
+    try {
+        const response = await fetch(`${API_BASE}${url}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+        return await response.json();
+    } catch (err) {
+        console.error(err);
+        alert("Error sending data to server");
+    }
+}
+
+// Helper function to GET data from backend
+async function fetchData(url) {
+    try {
+        const res = await fetch(`${API_BASE}${url}`);
+        return await res.json();
+    } catch (err) {
+        console.error(err);
+        return [];
+    }
+}
+
+// ================= PATIENTS =================
+const patientForm = document.querySelector("#patientForm");
+const patientsTable = document.querySelector("#patientsTable tbody");
+
+if(patientForm) {
+    patientForm.addEventListener("submit", async e => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(patientForm));
+        data.hospital_id = 1; // default hospital
+        const res = await postData("/patients/add", data);
+        if(res && res.success) {
+            alert("Patient added!");
+            patientForm.reset();
+            loadPatients();
+        }
+    });
+
+    async function loadPatients() {
+        const patients = await fetchData("/patients/all");
+        patientsTable.innerHTML = "";
+        patients.forEach(p => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `<td>${p.patient_id}</td><td>${p.first_name}</td><td>${p.last_name}</td><td>${p.dob}</td><td>${p.gender}</td><td>${p.patient_type}</td><td>${p.contact}</td>`;
+            patientsTable.appendChild(tr);
+        });
+    }
+    loadPatients();
+}
+
+// ================= DOCTORS =================
+const doctorForm = document.querySelector("#doctorForm");
+const doctorsTable = document.querySelector("#doctorsTable tbody");
+
+if(doctorForm) {
+    doctorForm.addEventListener("submit", async e => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(doctorForm));
+        data.hospital_id = 1;
+        const res = await postData("/doctors/add", data);
+        if(res && res.success) {
+            alert("Doctor added!");
+            doctorForm.reset();
+            loadDoctors();
+        }
+    });
+
+    async function loadDoctors() {
+        const doctors = await fetchData("/doctors/all");
+        doctorsTable.innerHTML = "";
+        doctors.forEach(d => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `<td>${d.doctor_id}</td><td>${d.first_name}</td><td>${d.last_name}</td><td>${d.dob}</td><td>${d.gender}</td><td>${d.specialization}</td><td>${d.contact}</td>`;
+            doctorsTable.appendChild(tr);
+        });
+    }
+    loadDoctors();
+}
+
+// ================= PRESCRIPTIONS =================
+const prescriptionForm = document.querySelector("#prescriptionForm");
+const prescriptionsTable = document.querySelector("#prescriptionsTable tbody");
+
+if(prescriptionForm) {
+    prescriptionForm.addEventListener("submit", async e => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(prescriptionForm));
+        const res = await postData("/prescriptions/add", data);
+        if(res && res.success) {
+            alert("Prescription added!");
+            prescriptionForm.reset();
+            loadPrescriptions();
+        }
+    });
+
+    async function loadPrescriptions() {
+        const prescriptions = await fetchData("/prescriptions/all");
+        prescriptionsTable.innerHTML = "";
+        prescriptions.forEach(p => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `<td>${p.prescription_id}</td><td>${p.patient_id}</td><td>${p.doctor_id}</td><td>${p.medicine}</td><td>${p.dosage}</td><td>${p.frequency}</td><td>${p.duration}</td><td>${p.instructions}</td><td>${p.created_at}</td>`;
+            prescriptionsTable.appendChild(tr);
+        });
+    }
+    loadPrescriptions();
+}
+
+// ================= ROOMS =================
+const roomForm = document.querySelector("#roomForm");
+const roomsTable = document.querySelector("#roomsTable tbody");
+
+if(roomForm) {
+    roomForm.addEventListener("submit", async e => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(roomForm));
+        const res = await postData("/rooms/add", data);
+        if(res && res.success) {
+            alert("Room added!");
+            roomForm.reset();
+            loadRooms();
+        }
+    });
+
+    async function loadRooms() {
+        const rooms = await fetchData("/rooms/all");
+        roomsTable.innerHTML = "";
+        rooms.forEach(r => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `<td>${r.room_id}</td><td>${r.room_number}</td><td>${r.room_type}</td><td>${r.capacity}</td>`;
+            roomsTable.appendChild(tr);
+        });
+    }
+    loadRooms();
+}
+
+// ================= SUPPLIERS =================
+const supplierForm = document.querySelector("#supplierForm");
+const suppliersTable = document.querySelector("#suppliersTable tbody");
+
+if(supplierForm) {
+    supplierForm.addEventListener("submit", async e => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(supplierForm));
+        const res = await postData("/suppliers/add", data);
+        if(res && res.success) {
+            alert("Supplier added!");
+            supplierForm.reset();
+            loadSuppliers();
+        }
+    });
+
+    async function loadSuppliers() {
+        const suppliers = await fetchData("/suppliers/all");
+        suppliersTable.innerHTML = "";
+        suppliers.forEach(s => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `<td>${s.supplier_id}</td><td>${s.name}</td><td>${s.contact}</td><td>${s.address}</td>`;
+            suppliersTable.appendChild(tr);
+        });
+    }
+    loadSuppliers();
+}
+
+// ================= USERS =================
+const userForm = document.querySelector("#userForm");
+const usersTable = document.querySelector("#usersTable tbody");
+
+if(userForm) {
+    userForm.addEventListener("submit", async e => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(userForm));
+        const res = await postData("/users/add", data);
+        if(res && res.success) {
+            alert("User added!");
+            userForm.reset();
+            loadUsers();
+        }
+    });
+
+    async function loadUsers() {
+        const users = await fetchData("/users/all");
+        usersTable.innerHTML = "";
+        users.forEach(u => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `<td>${u.user_id}</td><td>${u.username}</td><td>${u.role}</td>`;
+            usersTable.appendChild(tr);
+        });
+    }
+    loadUsers();
+}
+

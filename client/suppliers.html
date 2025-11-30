@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Suppliers - HMS</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><h1>Suppliers Management</h1></header>
+<nav><a href="dashboard.html">Dashboard</a></nav>
+<main>
+<h2>Add Supplier</h2>
+<form id="supplierForm">
+<input type="text" name="name" placeholder="Supplier Name" required>
+<input type="text" name="contact" placeholder="Contact">
+<textarea name="address" placeholder="Address"></textarea>
+<button type="submit">Add Supplier</button>
+</form>
+
+<h2>Existing Suppliers</h2>
+<table id="suppliersTable">
+<thead><tr>
+<th>ID</th><th>Name</th><th>Contact</th><th>Address</th>
+</tr></thead>
+<tbody></tbody>
+</table>
+<script src="js/main.js"></script>
+</main>
+</body>
+</html>

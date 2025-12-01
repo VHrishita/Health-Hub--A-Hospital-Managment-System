@@ -9,11 +9,11 @@ A Hospital Management System built with HTML, CSS, and JavaScript. This project 
 - A visually appealing dashboard with: Gradient background Rounded analytics cards Patient & doctor stats Upcoming appointments
 
 ### Hospital Modules
--Patient Management
--Doctor Management
--Appointments Scheduling
--Room / Bed Allocation
--Reports & Logs
+- Patient Management
+- Doctor Management
+- Appointments Scheduling
+- Room / Bed Allocation
+- Reports & Logs
 
 Each section contains a structured, user-friendly layout designed for integration with backend APIs.
 

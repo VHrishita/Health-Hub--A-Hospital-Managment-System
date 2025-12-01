@@ -5,21 +5,22 @@ This project provides a complete front-end interface for managing hospital opera
 
 ---
 
-##🚀 Features
+## 🚀 Features
 
-User Authentication:
+## User Authentication:
 
 -Login & Sign-Up pages
+---
 
-Dashboard:
+## Dashboard:
 
 A visually appealing dashboard with:
 Gradient background
 Rounded analytics cards
 Patient & doctor stats
 Upcoming appointments
-
-🏥 Hospital Modules
+---
+## 🏥 Hospital Modules
 
 Patient Management
 
@@ -34,8 +35,8 @@ Room / Bed Allocation
 Reports & Logs
 
 Each section contains a structured, user-friendly layout designed for integration with backend APIs.
-
-🎨 UI / UX
+---
+## 🎨 UI / UX
 
 Fully responsive
 
@@ -50,8 +51,8 @@ Modern layout
 Hover animations
 
 Optional hero banner section for hospital introduction
-
-🖼️ Pages Included
+---
+## 🖼️ Pages Included
 
 Login Page
 
@@ -68,33 +69,23 @@ Appointments Page
 Billing Page
 
 Reports Page
-
-🛠 Technologies Used
+---
+## 🛠 Technologies Used
 
 HTML5
 
 CSS3 (Flexbox + Animations + Gradients)
 
 JavaScript ES6
+---
 
-📌 How to Use
+## 📌 site
 
-Clone the repository
+https://health-hub-a-hospital-managment-sys.vercel.app/
 
-git clone https://github.com/your-username/hms.git
+---
 
-
-Open the project folder
-
-Run index.html in any browser
-
-Explore the modules from the sidebar/dashboard
-
-📸 Screenshots
-
-(Add screenshots later: login page, dashboard, modules)
-
-📍 Future Enhancements
+## 📍 Future Enhancements
 
 Backend integration (Node / PHP / Django)
 
@@ -108,6 +99,12 @@ Real-time appointment updates
 
 Exportable reports
 
-🤝 Contributions
+---
+## 🤝 Contributions
+Vempali Hrishita
 
-Feel free to contribute improvements, UI enhancements, or backend integrations!
+Ashika V
+
+All rights reserved
+
+Feel free to drop a ⭐ if this project was anyways useful to you!

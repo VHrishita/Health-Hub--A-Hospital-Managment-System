@@ -32,7 +32,7 @@ Each section contains a structured, user-friendly layout designed for integratio
 
 ## 🚀 Live Site
 
-🔗 Visit here → **[https://health-hub-a-hospital-managment-sys.vercel.app/https://health-hub-a-hospital-managment-sys.vercel.app/)**
+🔗 Visit here → **[https://health-hub-a-hospital-managment-sys.vercel.app/)**
 
 ---
 

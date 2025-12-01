@@ -1,4 +1,4 @@
-const BASE_URL = "https://health-hub-a-hospital-managment-sys-three.vercel.app/";
+const API_BASE = "http://localhost:3000/api";
 
 async function postData(url, data) {
     try {

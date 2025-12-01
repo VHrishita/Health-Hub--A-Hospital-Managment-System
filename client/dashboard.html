@@ -7,161 +7,137 @@
 
 <style>
     * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-    body {
-        background: #f4f6f9;
-    }
+/* --- GLOBAL THEME (Unified Background) --- */
+:root {
+    --bg-main: linear-gradient(135deg, #d6f8ef, #ead9fa, #ffe4d1);
+    --card-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    --soft-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
-    /* NAVBAR */
-    .navbar {
-        width: 100%;
-        height: 65px;
-        background: linear-gradient(135deg, #9ce9d6, #d896d8);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 25px;
-        color: white;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }
+body {
+    background: var(--bg-main);
+}
 
-    .navbar h1 {
-        font-size: 24px;
-        font-weight: bold;
-    }
+/* --- NAVBAR --- */
+.navbar {
+    width: 100%;
+    height: 65px;
+    background: linear-gradient(135deg, #84dbc7, #c588d4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    color: white;
+    box-shadow: var(--soft-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
-    .nav-links {
-        display: flex;
-        gap: 15px;
-    }
+.navbar h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
 
-    .nav-links a {
-        color: white;
-        text-decoration: none;
-        font-size: 16px;
-        padding: 8px 12px;
-        border-radius: 5px;
-        transition: 0.3s ease;
-    }
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
 
-    .nav-links a:hover {
-        background: rgba(255,255,255,0.25);
-    }
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
 
-    .logout-btn {
-        background: #ff4b4b;
-        padding: 10px 18px;
-        border: none;
-        color: white;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: 0.2s;
-    }
+.nav-links a:hover {
+    background: rgba(255,255,255,0.25);
+}
 
-    .logout-btn:hover {
-        background: #d74343;
-    }
+.logout-btn {
+    background: #ff4b4b;
+    padding: 10px 18px;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+}
 
-    /* DASHBOARD STATS & CARDS */
-    .dashboard-stats {
-        padding: 25px;
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-    }
+.logout-btn:hover {
+    background: #d74343;
+}
 
-    .cards {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-
-    .card {
-        flex: 1;
-        min-width: 180px;
-        background: linear-gradient(135deg, #6a11cb,#2575fc);
-        color: white;
-        border-radius: 12px;
-        padding: 25px 15px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    }
-
-    .card h3 {
-        font-size: 18px;
-        margin-bottom: 10px;
-        font-weight: 600;
-    }
-
-    .card p {
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .card.yellow { background: linear-gradient(135deg,#f7971e,#ffd200); }
-    .card.red { background: linear-gradient(135deg,#ff416c,#ff4b2b); }
-    .card.green { background: linear-gradient(135deg,#11998e,#38ef7d); }
-
-    .chart-container {
-        background:white;
-        padding:20px;
-        border-radius:12px;
-        box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .chart-container h3 {
-        margin-bottom: 15px;
-    }
-
-    /* MAIN CONTENT */
-    .container {
-        padding: 25px;
-        background: linear-gradient(135deg, hsl(160 55% 85%), hsl(280 50% 88%), hsl(25 80% 88%));
-
-    }
-
-    .section {
-         background: linear-gradient(135deg, hsl(160 55% 85%), hsl(280 50% 88%), hsl(25 80% 88%));
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 25px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    }
-
-    .section h2 {
-        margin-bottom: 12px;
-        color: #333;
-    }
-
-    .section p {
-        color: #555;
-        line-height: 1.5;
-    }
-    .dashboard-welcome, 
-.dashboard-overview, 
-.dashboard-modules, 
-.dashboard-footer-info {
-    background: #fff;
+/* --- DASHBOARD CARDS --- */
+.dashboard-stats {
     padding: 25px;
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background: var(--bg-main);
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    flex: 1;
+    min-width: 190px;
+    color: white;
     border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    padding: 25px 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: var(--card-shadow);
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card.yellow { background: linear-gradient(135deg,#f7971e,#ffd200); }
+.card.red { background: linear-gradient(135deg,#ff416c,#ff4b2b); }
+.card.green { background: linear-gradient(135deg,#11998e,#38ef7d); }
+
+/* --- CHART CONTAINER --- */
+.chart-container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    margin-top: 10px;
+}
+
+.chart-container h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* --- SECTION BLOCKS --- */
+.dashboard-welcome,
+.dashboard-overview,
+.dashboard-modules,
+.dashboard-footer-info {
+    background: var(--bg-main);
+    padding: 25px;
+    border-radius: 12px;
+    margin: 20px;
+    box-shadow: var(--soft-shadow);
 }
 
 .dashboard-welcome h2 {
@@ -170,8 +146,10 @@
 
 .highlights-list li {
     margin: 8px 0;
+    color: #333;
 }
 
+/* --- MODULE CARDS GRID --- */
 .modules-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -186,15 +164,24 @@
     color: #fff;
     text-align: center;
     font-weight: 600;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: var(--soft-shadow);
 }
 
+/* --- FOOTER --- */
+footer {
+    margin-top: 60px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    padding-bottom: 20px;
+}
 
-    /* RESPONSIVE */
-    @media(max-width:900px){
-        .cards { flex-direction: column; align-items: center; }
-        .nav-links { flex-wrap: wrap; gap: 10px; }
-    }
+/* --- RESPONSIVE --- */
+@media(max-width:900px){
+    .cards { flex-direction: column; align-items: center; }
+    .nav-links { flex-wrap: wrap; gap: 10px; }
+}
+
 </style>
 
 </head>
@@ -217,6 +204,13 @@
         <button class="logout-btn" onclick="logout()">Logout</button>
     </div>
 
+    <section class="dashboard-welcome">
+    <h2>Welcome to Health Hub Hospital Management System</h2>
+    <p>
+        Streamline your hospital operations with real-time insights, quick access to patient records,
+        appointment workflows, and administrative tools — all from a unified dashboard.
+    </p>
+</section>
 
 <!-- DASHBOARD STATS & GRAPH SECTION -->
 <div class="dashboard-stats" style="padding:20px; background: linear-gradient(135deg, hsl(160 55% 85%), hsl(280 50% 88%), hsl(25 80% 88%));
@@ -284,15 +278,6 @@
     });
 </script>
 
-
-   <section class="dashboard-welcome">
-    <h2>Welcome to Health Hub Hospital Management System</h2>
-    <p>
-        Streamline your hospital operations with real-time insights, quick access to patient records,
-        appointment workflows, and administrative tools — all from a unified dashboard.
-    </p>
-</section>
-
 <section class="dashboard-overview">
     <h3>Operational Highlights</h3>
     <p>
@@ -329,19 +314,16 @@
     </div>
 </section>
 
-<section class="dashboard-footer-info">
-    <p>
-        Health Hub HMS — Designed to improve hospital efficiency, reduce paperwork, and deliver
-        seamless patient care through digital automation.
-    </p>
-</section>
-
 
     <script>
         function logout() {
             window.location.href = "index.html";
         }
     </script>
+    <footer>
+      © 2025 Health Hub. Secure healthcare management for modern hospitals.
+      <p>Created by Vempali Hrishita & Ashika V</p>
+    </footer>
 
 </body>
 </html>

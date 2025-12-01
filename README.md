@@ -1,6 +1,6 @@
 # Health Hub - A Hospital Management System (HMS)
 
-A clean, modern, and responsive Hospital Management System built with HTML, CSS, and JavaScript. This project provides a complete front-end interface for managing hospital operations such as authentication, dashboard analytics, patient records, doctor listings, appointments, billing, and reports.
+A Hospital Management System built with HTML, CSS, and JavaScript. This project manages hospital operations such as authentication, dashboard analytics, patient records, doctor listings, appointments, and reports.
 ---
 
 ## ✨ Features

@@ -153,6 +153,42 @@
         color: #555;
         line-height: 1.5;
     }
+    .dashboard-welcome, 
+.dashboard-overview, 
+.dashboard-modules, 
+.dashboard-footer-info {
+    background: #fff;
+    padding: 25px;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.dashboard-welcome h2 {
+    color: #0a3d62;
+}
+
+.highlights-list li {
+    margin: 8px 0;
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.module-card {
+    background: linear-gradient(135deg, #4cc9f0, #4361ee);
+    padding: 15px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
 
     /* RESPONSIVE */
     @media(max-width:900px){
@@ -249,31 +285,57 @@
 </script>
 
 
-    <!-- MAIN CONTENT -->
-    <div class="container">
-        <div class="section">
-            <h2>Welcome!</h2>
-            <p>Your HMS dashboard is ready. Choose a section from the navbar.</p>
-        </div>
+   <section class="dashboard-welcome">
+    <h2>Welcome to Health Hub Hospital Management System</h2>
+    <p>
+        Streamline your hospital operations with real-time insights, quick access to patient records,
+        appointment workflows, and administrative tools — all from a unified dashboard.
+    </p>
+</section>
 
-        <div class="section">
-            <h2>Quick Overview</h2>
-            <p>Add analytics cards, counts, graphs etc here later.</p>
-        </div>
+<section class="dashboard-overview">
+    <h3>Operational Highlights</h3>
+    <p>
+        Stay updated with the latest hospital activity. Monitor patient flow, doctor availability,
+        room occupancy, and appointment schedules with live synchronized data from all departments.
+    </p>
 
-        <div class="section">
-            <h2>System Modules</h2>
-            <p>
-               ✓ Patients Management <br>
-                ✓ Doctors Management <br>
-                ✓ Appointments Scheduling <br>
-                ✓ Billing & Payments <br>
-                ✓ Bed / Room Allocation <br>
-                ✓ User & Role Control <br>
-                ✓ Reports & Logs <br>
-            </p>
-        </div>
+    <ul class="highlights-list">
+        <li>✔ Centralized patient management</li>
+        <li>✔ Real-time appointment tracking</li>
+        <li>✔ Doctor allocation & shift monitoring</li>
+        <li>✔ Automated room & ward availability</li>
+        <li>✔ Prescription & medication workflow</li>
+        <li>✔ Multi-role access controls for staff members</li>
+    </ul>
+</section>
+
+<section class="dashboard-modules">
+    <h3>System Modules Overview</h3>
+    <p>
+        The Health Hub HMS integrates all hospital operations into structured modules designed for speed,
+        accuracy, and security.
+    </p>
+
+    <div class="modules-grid">
+        <div class="module-card">Patients Management</div>
+        <div class="module-card">Doctors Directory</div>
+        <div class="module-card">Appointment Scheduling</div>
+        <div class="module-card">Prescriptions & Medication</div>
+        <div class="module-card">Suppliers & Inventory</div>
+        <div class="module-card">Room & Bed Allocation</div>
+        <div class="module-card">User & Role Permissions</div>
+        <div class="module-card">Reports & Activity Logs</div>
     </div>
+</section>
+
+<section class="dashboard-footer-info">
+    <p>
+        Health Hub HMS — Designed to improve hospital efficiency, reduce paperwork, and deliver
+        seamless patient care through digital automation.
+    </p>
+</section>
+
 
     <script>
         function logout() {

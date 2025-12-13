@@ -34,7 +34,6 @@ const app = express();
 app.use(express.json());
 app.use("/api/users", require("./routes/users"));
 app.use("/api/patients", require("./routes/patients"));
-// add other routes similarly
 
 // Serve frontend
 app.use(express.static(path.join(__dirname, "../frontend")));

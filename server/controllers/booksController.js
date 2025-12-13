@@ -13,8 +13,6 @@ export const getBookById = (req, res) => {
     res.json(results[0]);
   });
 };
-
-// Create book
 export const createBook = (req, res) => {
   const { title, author, genre, year_published, available_copies } = req.body;
   db.query(

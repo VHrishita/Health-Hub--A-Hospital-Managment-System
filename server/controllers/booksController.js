@@ -25,7 +25,6 @@ export const createBook = (req, res) => {
   );
 };
 
-// Update book
 export const updateBook = (req, res) => {
   const { id } = req.params;
   const { title, author, genre, year_published, available_copies } = req.body;
@@ -39,7 +38,6 @@ export const updateBook = (req, res) => {
   );
 };
 
-// Delete book
 export const deleteBook = (req, res) => {
   const { id } = req.params;
   db.query("DELETE FROM books WHERE book_id = ?", [id], (err) => {

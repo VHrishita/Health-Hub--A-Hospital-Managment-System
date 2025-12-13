@@ -32,8 +32,6 @@ const path = require("path");
 const app = express();
 
 app.use(express.json());
-
-// API routes
 app.use("/api/users", require("./routes/users"));
 app.use("/api/patients", require("./routes/patients"));
 // add other routes similarly

@@ -1,6 +1,5 @@
 import db from "../db.js";
 
-// Get all members
 export const getMembers = (req, res) => {
   db.query("SELECT * FROM members", (err, results) => {
     if (err) return res.status(500).json(err);
@@ -8,7 +7,6 @@ export const getMembers = (req, res) => {
   });
 };
 
-// Get member by ID
 export const getMemberById = (req, res) => {
   const { id } = req.params;
   db.query("SELECT * FROM members WHERE member_id = ?", [id], (err, results) => {
@@ -16,8 +14,6 @@ export const getMemberById = (req, res) => {
     res.json(results[0]);
   });
 };
-
-// Create member
 export const createMember = (req, res) => {
   const { name, email, phone, membership_date } = req.body;
   db.query(
@@ -29,8 +25,6 @@ export const createMember = (req, res) => {
     }
   );
 };
-
-// Update member
 export const updateMember = (req, res) => {
   const { id } = req.params;
   const { name, email, phone, membership_date } = req.body;
@@ -43,8 +37,6 @@ export const updateMember = (req, res) => {
     }
   );
 };
-
-// Delete member
 export const deleteMember = (req, res) => {
   const { id } = req.params;
   db.query("DELETE FROM members WHERE member_id=?", [id], (err) => {

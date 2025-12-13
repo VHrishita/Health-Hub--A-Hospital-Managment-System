@@ -6,8 +6,6 @@ export const getBooks = (req, res) => {
     res.json(results);
   });
 };
-
-// Get single book
 export const getBookById = (req, res) => {
   const { id } = req.params;
   db.query("SELECT * FROM books WHERE book_id = ?", [id], (err, results) => {

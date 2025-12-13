@@ -35,7 +35,6 @@ app.use(express.json());
 app.use("/api/users", require("./routes/users"));
 app.use("/api/patients", require("./routes/patients"));
 
-// Serve frontend
 app.use(express.static(path.join(__dirname, "../frontend")));
 
 app.get("*", (req, res) => {

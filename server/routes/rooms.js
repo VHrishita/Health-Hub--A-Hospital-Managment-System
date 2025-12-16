@@ -1,8 +1,6 @@
 import express from 'express';
 import db from '../db.js';
 const router = express.Router();
-
-// Add room
 router.post('/add', async (req, res) => {
     const { room_number, room_type, capacity } = req.body;
     try {

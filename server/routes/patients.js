@@ -17,8 +17,6 @@ router.post('/add', async (req, res) => {
         res.status(500).json({ success: false, error: err.message });
     }
 });
-
-// Get all patients
 router.get('/all', async (req, res) => {
     const [rows] = await db.execute('SELECT * FROM patients');
     res.json(rows);

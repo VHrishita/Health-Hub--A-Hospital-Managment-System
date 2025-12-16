@@ -15,10 +15,8 @@ router.post('/add', async (req, res) => {
     }
 });
 
-// Get all rooms
 router.get('/all', async (req, res) => {
     const [rows] = await db.execute('SELECT * FROM rooms');
     res.json(rows);
 });
-
 export default router;

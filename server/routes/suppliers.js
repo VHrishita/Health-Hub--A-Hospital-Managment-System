@@ -1,8 +1,6 @@
 import express from 'express';
 import db from '../db.js';
 const router = express.Router();
-
-// Add supplier
 router.post('/add', async (req, res) => {
     const { name, contact, address } = req.body;
     try {
@@ -16,11 +14,8 @@ router.post('/add', async (req, res) => {
         res.status(500).json({ success: false, error: err.message });
     }
 });
-
-// Get all suppliers
 router.get('/all', async (req, res) => {
     const [rows] = await db.execute('SELECT * FROM suppliers');
     res.json(rows);
 });
-
 export default router;

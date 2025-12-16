@@ -1,8 +1,6 @@
 import express from 'express';
 import db from '../db.js';
 const router = express.Router();
-
-// Add doctor
 router.post('/add', async (req, res) => {
     const { hospital_id, first_name, last_name, dob, gender, blood_group, contact, address, specialization } = req.body;
     try {

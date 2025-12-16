@@ -17,10 +17,8 @@ router.post('/add', async (req, res) => {
     }
 });
 
-// Get all doctors
 router.get('/all', async (req, res) => {
     const [rows] = await db.execute('SELECT * FROM doctors');
     res.json(rows);
 });
-
 export default router;

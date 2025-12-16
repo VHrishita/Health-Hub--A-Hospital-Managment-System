@@ -2,8 +2,6 @@
 import express from 'express';
 import  db  from '../db.js';
 const router = express.Router();
-
-// Login route
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 

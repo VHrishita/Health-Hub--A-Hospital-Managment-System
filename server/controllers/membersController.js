@@ -1,11 +1,4 @@
-import db from "../db.js";
 
-export const getMembers = (req, res) => {
-  db.query("SELECT * FROM members", (err, results) => {
-    if (err) return res.status(500).json(err);
-    res.json(results);
-  });
-};
 
 export const getMemberById = (req, res) => {
   const { id } = req.params;

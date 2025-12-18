@@ -1,11 +1,4 @@
-import db from "../db.js";
 
-export const getBooks = (req, res) => {
-  db.query("SELECT * FROM books", (err, results) => {
-    if (err) return res.status(500).json(err);
-    res.json(results);
-  });
-};
 export const getBookById = (req, res) => {
   const { id } = req.params;
   db.query("SELECT * FROM books WHERE book_id = ?", [id], (err, results) => {

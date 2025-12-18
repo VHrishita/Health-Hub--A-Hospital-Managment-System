@@ -1,11 +1,4 @@
-import db from "../db.js";
 
-export const getAcquisitions = (req, res) => {
-  db.query("SELECT * FROM acquisitions", (err, results) => {
-    if (err) return res.status(500).json(err);
-    res.json(results);
-  });
-};
 
 export const getAcquisitionById = (req, res) => {
   const { id } = req.params;
